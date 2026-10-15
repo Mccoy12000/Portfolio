@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Marcus T. Dumenden | Computer Engineering Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mapuaRed: '#8B0000',
+                        mapuaRedDark: '#600000',
+                        cardinalAccent: '#DC2626',
+                        darkBg: '#0f172a',
+                        cardBg: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans min-h-screen flex flex-col selection:bg-mapuaRed selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-darkBg/95 backdrop-blur border-b border-slate-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-mapuaRed flex items-center justify-center font-bold text-white shadow-lg shadow-mapuaRed/30">
+                        JD
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg tracking-tight text-white">Juan Marcus T. Dumenden</span>
+                        <span class="block text-xs text-slate-400">1st-Year BS CpE A37 | Mapúa University</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Tabs -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <button onclick="switchTab('home')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-white bg-mapuaRed shadow-md" data-target="home">Home</button>
+                    <button onclick="switchTab('about')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800" data-target="about">About Me</button>
+                    <button onclick="switchTab('coursework')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800" data-target="coursework">Coursework</button>
+                    <button onclick="switchTab('projects')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800" data-target="projects">Projects</button>
+                    <button onclick="switchTab('journey')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800" data-target="journey">Personal Journey</button>
+                    <button onclick="switchTab('gallery')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800" data-target="gallery">Gallery</button>
+                    <button onclick="switchTab('contact')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-800" data-target="contact">Contact</button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-mapuaRed">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">About Me</button>
+            <button onclick="switchTab('coursework'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Coursework</button>
+            <button onclick="switchTab('projects'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Projects</button>
+            <button onclick="switchTab('journey'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Personal Journey</button>
+            <button onclick="switchTab('gallery'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Gallery</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Contact</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ================= HOME TAB ================= -->
+        <section id="home" class="tab-content active space-y-12 animate-fadeIn">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-10">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-mapuaRed/20 border border-mapuaRed/40 text-cardinalAccent text-xs font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Mapúa Computer Engineering • Section CpE A37</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Hi, I'm <span class="text-cardinalAccent">Juan Marcus T. Dumenden</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 leading-relaxed">
+                        A dedicated 1st-year BS Computer Engineering student at Mapúa University. I bridge the gap between software intelligence and physical hardware systems to build practical, real-world solutions.
+                    </p>
+                    <p class="text-sm text-slate-400 italic border-l-2 border-mapuaRed pl-4">
+                        "Engineering the future through robust hardware design, smart embedded systems, and relentless problem-solving."
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('projects')" class="px-6 py-3 bg-mapuaRed hover:bg-mapuaRedDark text-white font-medium rounded-xl shadow-lg shadow-mapuaRed/30 transition-all flex items-center space-x-2">
+                            <span>Explore Projects</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                        <button onclick="switchTab('contact')" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-xl border border-slate-700 transition-all">
+                            Get in Touch
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Avatar / Graduation Photo -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-mapuaRed/50 bg-cardBg group">
+                        <img src="Grad_photo.jpg" alt="Juan Marcus T. Dumenden Graduation Photo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 left-4 right-4 bg-darkBg/80 backdrop-blur-md p-3 rounded-xl border border-slate-700 text-center">
+                            <p class="text-sm font-semibold text-white">Juan Marcus T. Dumenden</p>
+                            <p class="text-xs text-slate-400">Centro Escolar Integrated School (Class of 2026)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Highlights Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-mapuaRed/50 transition-all shadow-md">
+                    <div class="w-12 h-12 rounded-xl bg-mapuaRed/20 text-cardinalAccent flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Hardware & Embedded Systems</h3>
+                    <p class="text-slate-400 text-sm">Experienced in Arduino, ESP32 microcontrollers, sensor integration, and hands-on circuit debugging.</p>
+                </div>
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-mapuaRed/50 transition-all shadow-md">
+                    <div class="w-12 h-12 rounded-xl bg-mapuaRed/20 text-cardinalAccent flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Coding & Problem Solving</h3>
+                    <p class="text-slate-400 text-sm">Solving complex mathematical models, trigonometric identities, Gaussian elimination, and programming logic.</p>
+                </div>
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-mapuaRed/50 transition-all shadow-md">
+                    <div class="w-12 h-12 rounded-xl bg-mapuaRed/20 text-cardinalAccent flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Innovation & Drive</h3>
+                    <p class="text-slate-400 text-sm">Successfully defended research prototypes and built practical automation devices since high school.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT ME TAB ================= -->
+        <section id="about" class="tab-content space-y-12">
+            <div class="border-b border-slate-800 pb-5">
+                <h2 class="text-3xl font-bold text-white flex items-center space-x-3">
+                    <i class="fa-solid fa-user text-cardinalAccent"></i>
+                    <span>About Me</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Background, academic roots, personal interests, and engineering passion.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden shadow-xl border border-slate-700 bg-cardBg">
+                        <img src="Grad_photo.jpg" alt="Juan Marcus T. Dumenden" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-cardBg p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4">
+                        <h3 class="text-xl font-bold text-white">Background & Focus</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Born and raised in Makati City, I graduated from Centro Escolar Integrated School in 2026. Now, I am proudly building my future in engineering as a first-year Computer Engineering student at Mapúa University (Section CpE A37). I chose this field because of my deep fascination with how physical hardware components come alive through code to solve real-world problems. I am well-determined to master both the theoretical and practical sides of engineering.
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4">
+                        <h3 class="text-xl font-bold text-white">Interests & Activities</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Outside of my rigorous coursework, I am very active and well-rounded. I enjoy hitting the gym (tracking my physical progress and rep counts), playing strategic video games, watching movies and tech media, and seizing every hands-on opportunity I can find to learn, build, and grow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Early Engineering Experience Timeline -->
+            <div class="bg-cardBg p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+                <h3 class="text-2xl font-bold text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-timeline text-cardinalAccent"></i>
+                    <span>Early Engineering Experience</span>
+                </h3>
+                <p class="text-slate-300 text-sm">
+                    Before stepping into Mapúa University, my foundational technical skills were forged through hands-on prototyping and research projects during senior high school:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                    <div class="bg-darkBg p-5 rounded-xl border border-slate-700 space-y-2">
+                        <span class="text-xs font-semibold text-cardinalAccent px-2 py-1 rounded bg-mapuaRed/20">2025 • Grade 11</span>
+                        <h4 class="font-bold text-white text-lg">MediMinder Prototype</h4>
+                        <p class="text-slate-400 text-sm">Served as coding assistant and hardware specialist handling circuit assembly and debugging for an automated medicine reminder system.</p>
+                    </div>
+                    <div class="bg-darkBg p-5 rounded-xl border border-slate-700 space-y-2">
+                        <span class="text-xs font-semibold text-cardinalAccent px-2 py-1 rounded bg-mapuaRed/20">2026 • Grade 12</span>
+                        <h4 class="font-bold text-white text-lg">Methane Sensor Food Spoilage</h4>
+                        <p class="text-slate-400 text-sm">Engineered hardware connections and debugged sensor logic for a successfully defended research prototype detecting pre-expiration food spoilage.</p>
+                    </div>
+                    <div class="bg-darkBg p-5 rounded-xl border border-slate-700 space-y-2">
+                        <span class="text-xs font-semibold text-cardinalAccent px-2 py-1 rounded bg-mapuaRed/20">2026 • Grade 12</span>
+                        <h4 class="font-bold text-white text-lg">Earthquake Warning System</h4>
+                        <p class="text-slate-400 text-sm">Led hardware integration and debugging for an early seismic alert robotics project featuring high-decibel buzzer alarms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= COURSEWORK TAB ================= -->
+        <section id="coursework" class="tab-content space-y-12">
+            <div class="border-b border-slate-800 pb-5">
+                <h2 class="text-3xl font-bold text-white flex items-center space-x-3">
+                    <i class="fa-solid fa-book-open text-cardinalAccent"></i>
+                    <span>Coursework</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Key courses shaping my understanding of computer engineering and mathematical foundations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Course 1 -->
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-mapuaRed/50 transition-all space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-cardinalAccent uppercase tracking-wider">Mathematics & Analysis</span>
+                            <h3 class="text-xl font-bold text-white mt-1">Advanced Engineering Mathematics</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs">Active</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Covers complex mathematical models, trigonometric identities, conic sections, logarithmic models, and Gaussian elimination systems essential for engineering calculations.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">ALEKS</span>
+                        <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Cengage WebAssign</span>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="bg-cardBg p-6 rounded-2xl border border-slate-800 hover:border-mapuaRed/50 transition-all space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-cardinalAccent uppercase tracking-wider">Laboratory Science</span>
+                            <h3 class="text-xl font-bold text-white mt-1">General Chemistry for Engineers</h3>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs">Active</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Hands-on laboratory reviews, calorimetry experiments, reaction rates analysis, and scientific data analysis to understand material properties and chemical behaviors.
+                    </p>
+                    <div class="pt-2 border-t border-slate-800 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Calorimetry</span>
+                        <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Reaction Kinetics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROJECTS TAB ================= -->
+        <section id="projects" class="tab-content space-y-12">
+            <div class="border-b border-slate-800 pb-5">
+                <h2 class="text-3xl font-bold text-white flex items-center space-x-3">
+                    <i class="fa-solid fa-laptop-code text-cardinalAccent"></i>
+                    <span>Projects & Prototypes</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Hardware prototypes, research papers, and robotics systems built during high school. Hover or tap a photo to see more.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-cardBg rounded-2xl overflow-hidden border border-slate-800 hover:border-mapuaRed/50 transition-all flex flex-col shadow-lg">
+                    <div class="h-56 overflow-hidden bg-slate-900 relative group">
+                        <img src="image_ada39f.jpg" alt="Methane-Based Arduino Sensor for Food Spoilage" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0">
+                        <img src="Methane_sensor_build.png" alt="Build process of the methane-based Arduino food spoilage sensor: Arduino Uno, gas sensor, battery pack, and OLED display in an enclosure" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-grow space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <span class="text-xs font-semibold text-cardinalAccent px-2.5 py-1 rounded bg-mapuaRed/20">2026 • Grade 12 Research</span>
+                            <h3 class="text-xl font-bold text-white">Methane-Based Arduino Sensor for Food Spoilage</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                A successfully defended research prototype designed to detect food spoilage before expiration using gas sensors and microcontroller logic.
+                            </p>
+                            <div class="text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+                                <p><strong class="text-slate-200">My Role:</strong> Hardware assembly & debugging</p>
+                                <p><strong class="text-slate-200">Technologies:</strong> Arduino Uno, Gas Sensors, OLED Display</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2">
+                            <a href="https://docs.google.com" target="_blank" class="px-3 py-2 bg-mapuaRed hover:bg-mapuaRedDark text-white text-xs font-medium rounded-lg transition-all flex items-center space-x-1.5">
+                                <i class="fa-solid fa-file-lines"></i>
+                                <span>Research Paper - Google Docs</span>
+                            </a>
+                            <a href="https://docs.google.com" target="_blank" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-lg border border-slate-700 transition-all flex items-center space-x-1.5">
+                                <i class="fa-solid fa-presentation-screen"></i>
+                                <span>Prototype PPT - Presentation</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-cardBg rounded-2xl overflow-hidden border border-slate-800 hover:border-mapuaRed/50 transition-all flex flex-col shadow-lg">
+                    <div class="h-56 overflow-hidden bg-slate-900 relative group">
+                        <img src="Arduino_earthquake.jpg" alt="Classroom scale model with ESP32 earthquake alert system installed" class="absolute inset-0 w-full h-full object-cover object-[center_55%] transition-opacity duration-500 group-hover:opacity-0">
+                        <img src="Arduino_earthquake.jpg.jpg" alt="ESP32 circuit with MPU6050 sensor, buzzer, and LED" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-grow space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <span class="text-xs font-semibold text-cardinalAccent px-2.5 py-1 rounded bg-mapuaRed/20">2026 • Grade 12 Robotics</span>
+                            <h3 class="text-xl font-bold text-white">Earthquake Alert & Early Warning System</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                A robotics project engineered for early earthquake detection and high-decibel buzzer signaling to ensure maximum warning time and safety response.
+                            </p>
+                            <div class="text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+                                <p><strong class="text-slate-200">My Role:</strong> Hardware integration & circuit debugging</p>
+                                <p><strong class="text-slate-200">Technologies:</strong> ESP32, Vibration Sensors, Piezo Buzzers</p>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <span class="inline-block px-3 py-1.5 bg-slate-800 text-slate-300 text-xs rounded-lg border border-slate-700">Successfully Built & Tested</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-cardBg rounded-2xl overflow-hidden border border-slate-800 hover:border-mapuaRed/50 transition-all flex flex-col shadow-lg">
+                    <div class="h-56 overflow-hidden bg-slate-900 relative group">
+                        <img src="MediMinder_front.png" alt="MediMinder medicine reminder prototype with Medicine A compartment and LCD display" class="absolute inset-0 w-full h-full object-cover object-[center_40%] transition-opacity duration-500 group-hover:opacity-0">
+                        <img src="MediMinder_inside.png" alt="Inside of the MediMinder prototype showing the Arduino Uno and wiring" class="absolute inset-0 w-full h-full object-cover object-[center_60%] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    </div>
+                    <div class="p-6 flex-grow space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <span class="text-xs font-semibold text-cardinalAccent px-2.5 py-1 rounded bg-mapuaRed/20">2025 • Grade 11 Prototype</span>
+                            <h3 class="text-xl font-bold text-white">MediMinder (Medicine Reminder)</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                An automated reminder prototype designed to help users take medications on time and prevent missed dosage schedules.
+                            </p>
+                            <div class="text-xs text-slate-400 space-y-1 pt-2 border-t border-slate-800">
+                                <p><strong class="text-slate-200">My Role:</strong> Coding assistant, hardware & debugging</p>
+                                <p><strong class="text-slate-200">Technologies:</strong> Arduino Uno, LCD Display, RTC Module</p>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <span class="inline-block px-3 py-1.5 bg-slate-800 text-slate-300 text-xs rounded-lg border border-slate-700">Featured Prototype</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PERSONAL JOURNEY TAB ================= -->
+        <section id="journey" class="tab-content space-y-12">
+            <div class="border-b border-slate-800 pb-5">
+                <h2 class="text-3xl font-bold text-white flex items-center space-x-3">
+                    <i class="fa-solid fa-road text-cardinalAccent"></i>
+                    <span>Personal Journey & Reflection</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">My experiences as a Computer Engineering student at Mapúa University.</p>
+            </div>
+
+            <div class="bg-cardBg p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+                <h3 class="text-2xl font-bold text-white">From Makati Roots to Mapúa Halls</h3>
+                <p class="text-slate-300 leading-relaxed">
+                    Transitioning from Centro Escolar Integrated School (class of 2026) to the rigorous engineering environment of Mapúa University has been an incredible evolution. As an 18-year-old student in section CpE A37, I experience firsthand the fast-paced trimester system and demanding academic standards that Mapúa is renowned for.
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                    Balancing advanced mathematics problem sets, chemistry lab reviews, and hardware prototyping has tested my time management and discipline. Overcoming these academic hurdles has shaped my technical resilience and personal growth.
+                </p>
+            </div>
+
+            <!-- Journey Photo Gallery -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-camera text-cardinalAccent"></i>
+                    <span>Moments from My Mapúa Journey</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-cardBg rounded-xl overflow-hidden border border-slate-800 p-2 space-y-2">
+                        <div class="h-64 overflow-hidden rounded-lg">
+                            <img src="Photo_1.jfif.jpg" alt="Mapúa Student Lanyard Selfie" class="w-full h-full object-cover object-[center_35%] hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center py-1">Wearing my Mapúa lanyard with pride</p>
+                    </div>
+                    <div class="bg-cardBg rounded-xl overflow-hidden border border-slate-800 p-2 space-y-2">
+                        <div class="h-64 overflow-hidden rounded-lg">
+                            <img src="Photo_2.jfif.jpg" alt="Study and Laptop Setup" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center py-1">Late-night problem sets & coding sessions</p>
+                    </div>
+                    <div class="bg-cardBg rounded-xl overflow-hidden border border-slate-800 p-2 space-y-2">
+                        <div class="h-64 overflow-hidden rounded-lg">
+                            <img src="Photo_3.jfif.jpg" alt="Commute Snapshot" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <p class="text-xs text-slate-400 text-center py-1">On the move around campus and Makati</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= GALLERY TAB ================= -->
+        <section id="gallery" class="tab-content space-y-12">
+            <div class="border-b border-slate-800 pb-5">
+                <h2 class="text-3xl font-bold text-white flex items-center space-x-3">
+                    <i class="fa-solid fa-images text-cardinalAccent"></i>
+                    <span>Photo Gallery</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Snapshots of my projects, campus life, and everything in between. Click a photo to enlarge it.</p>
+            </div>
+
+            <!-- Photos are generated from the list in the script below -->
+            <div id="gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-4"></div>
+        </section>
+
+        <!-- ================= CONTACT TAB ================= -->
+        <section id="contact" class="tab-content space-y-12">
+            <div class="border-b border-slate-800 pb-5">
+                <h2 class="text-3xl font-bold text-white flex items-center space-x-3">
+                    <i class="fa-solid fa-envelope text-cardinalAccent"></i>
+                    <span>Contact Information</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Let's connect, collaborate, or discuss engineering opportunities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Contact Details Card -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-cardBg p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white">Get in Touch</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Whether you're a professor, fellow student, or industry professional looking to connect on engineering projects, feel free to reach out.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center space-x-4 text-slate-300">
+                                <div class="w-10 h-10 rounded-xl bg-mapuaRed/20 text-cardinalAccent flex items-center justify-center">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-400">Email</span>
+                                    <a href="mailto:jmtdumenden@mymail.mapua.edu.ph" class="text-sm font-medium hover:text-cardinalAccent transition-colors">jmtdumenden@mymail.mapua.edu.ph</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 text-slate-300">
+                                <div class="w-10 h-10 rounded-xl bg-mapuaRed/20 text-cardinalAccent flex items-center justify-center">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-400">Phone Number</span>
+                                    <a href="tel:09604551765" class="text-sm font-medium hover:text-cardinalAccent transition-colors">09604551765</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 text-slate-300">
+                                <div class="w-10 h-10 rounded-xl bg-mapuaRed/20 text-cardinalAccent flex items-center justify-center">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-slate-400">LinkedIn</span>
+                                    <a href="https://linkedin.com" target="_blank" class="text-sm font-medium hover:text-cardinalAccent transition-colors">linkedin.com/in/juan-marcus-dumenden</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-cardBg p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white">Send Me a Message</h3>
+                        <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                                <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-mapuaRed" placeholder="Enter your name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Your Email</label>
+                                <input type="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-mapuaRed" placeholder="Enter your email">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Message</label>
+                                <textarea rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-mapuaRed" placeholder="Type your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-mapuaRed hover:bg-mapuaRedDark text-white font-medium rounded-xl shadow-lg shadow-mapuaRed/30 transition-all">
+                                Send Message
+                            </button>
+                            <div id="form-success" class="hidden text-emerald-400 text-sm text-center pt-2">
+                                <i class="fa-solid fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-cardBg border-t border-slate-800 mt-16 py-8 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p>© 2026 Juan Marcus T. Dumenden. All rights reserved. | 1st-Year BS CpE A37, Mapúa University</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox (full-size photo viewer) -->
+    <div id="lightbox" class="hidden fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-4 right-4 text-white text-3xl hover:text-cardinalAccent" onclick="closeLightbox()" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <figure class="max-w-4xl w-full text-center" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="" class="max-h-[80vh] mx-auto rounded-xl border border-slate-700 object-contain">
+            <figcaption id="lightbox-caption" class="text-slate-300 text-sm mt-3"></figcaption>
+        </figure>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(el => el.classList.remove('active'));
+
+            const target = document.getElementById(tabId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-target') === tabId) {
+                    btn.classList.add('bg-mapuaRed', 'text-white', 'shadow-md');
+                    btn.classList.remove('text-slate-300', 'hover:bg-slate-800');
+                } else {
+                    btn.classList.remove('bg-mapuaRed', 'text-white', 'shadow-md');
+                    btn.classList.add('text-slate-300', 'hover:bg-slate-800');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('form-success');
+            successMsg.classList.remove('hidden');
+            event.target.reset();
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+
+        // ===== GALLERY: add or remove photos here =====
+        const galleryPhotos = [
+            { src: 'Grad_photo.jpg', caption: 'Graduation portrait, Class of 2026' },
+            { src: 'Photo_1.jfif.jpg', caption: 'Wearing my Mapúa lanyard with pride' },
+            { src: 'Photo_2.jfif.jpg', caption: 'Late-night problem sets & coding sessions' },
+            { src: 'Photo_3.jfif.jpg', caption: 'On the move around campus and Makati' },
+            { src: 'Arduino_earthquake.jpg', caption: 'Earthquake alert system installed in a classroom model' },
+            { src: 'Arduino_earthquake.jpg.jpg', caption: 'ESP32 circuit with motion sensor, buzzer, and LED' },
+            { src: 'Methane_sensor_build.png', caption: 'Building the methane-based food spoilage sensor' },
+            { src: 'MediMinder_front.png', caption: 'MediMinder prototype, front view' },
+            { src: 'MediMinder_inside.png', caption: 'MediMinder prototype, inside wiring' }
+        ];
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        galleryPhotos.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'break-inside-avoid mb-4 bg-cardBg rounded-xl overflow-hidden border border-slate-800 hover:border-mapuaRed/50 transition-all cursor-pointer group';
+            item.innerHTML = `
+                <div class="overflow-hidden">
+                    <img src="${photo.src}" alt="${photo.caption}" loading="lazy"
+                         class="w-full h-auto group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <p class="text-xs text-slate-400 text-center p-3">${photo.caption}</p>
+            `;
+            item.onclick = () => openLightbox(photo);
+            galleryGrid.appendChild(item);
+        });
+
+        function openLightbox(photo) {
+            document.getElementById('lightbox-img').src = photo.src;
+            document.getElementById('lightbox-img').alt = photo.caption;
+            document.getElementById('lightbox-caption').textContent = photo.caption;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
